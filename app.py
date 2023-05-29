@@ -3,29 +3,35 @@
 from flask import Flask,render_template,request,jsonify
 from flask_ngrok import run_with_ngrok
 from werkzeug.utils import secure_filename
-import pandas as pd
 import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
 import os
 import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, MaxPool2D, \
-Flatten, Dense, Activation, Dropout,LeakyReLU
+from tensorflow.keras.utils import image_dataset_from_directory
+from tensorflow.data.experimental import AUTOTUNE
+from tensorflow.keras import Sequential, Input, Model
+from tensorflow.keras.layers import RandomRotation, RandomZoom
+from tensorflow.keras.layers.experimental.preprocessing import Rescaling
+from tensorflow.keras.layers import Dense, GlobalAveragePooling2D, Dropout
+from tensorflow.keras import applications
+from tensorflow.keras.losses import CategoricalCrossentropy
+from tensorflow.keras.optimizers import Adam
 from PIL import Image
 from fungsi import make_model
 
 # =[Variabel Global]=============================
 
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__, static_url_path='/asset')
 
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 app.config['UPLOAD_EXTENSIONS']  = ['.jpg','.JPG', '.png', '.PNG']
-app.config['UPLOAD_PATH']        = './static/images/uploads/'
+app.config['UPLOAD_PATH']        = '##########'
 
 model = None
 
-NUM_CLASSES = 20
-AksaraJawa20_classes = ["ba", "ca", "da", "dha", "ga", "ha", "ja", "ka", "la", "ma", "na", "nga",
-                         "nya", "pa", "ra", "sa", "ta", "tha", "wa", "ya"] 
+NUM_CLASSES = 5
+Wayang_classes = ["bagong", "cepot", "gareng", "petruk", "semar"] 
 
 # =[Routing]=====================================
 
@@ -50,7 +56,7 @@ def apiDeteksi():
 	
 		# Set/mendapatkan extension dan path dari file yg diupload
 		file_ext        = os.path.splitext(filename)[1]
-		gambar_prediksi = '/static/images/uploads/' + filename
+		gambar_prediksi = '###########' + filename
 		
 		# Periksa apakah extension file yg diupload sesuai (jpg)
 		if file_ext in app.config['UPLOAD_EXTENSIONS']:
@@ -94,7 +100,7 @@ if __name__ == '__main__':
 	
 	# Load model yang telah ditraining
 	model = make_model()
-	model.load_weights("model_AksaraJawa20_cnn_tf.h5")
+	model.load_weights("modelwayang.h5")
 
 	# Run Flask di localhost 
 	run_with_ngrok(app)
