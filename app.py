@@ -26,7 +26,7 @@ app = Flask(__name__, static_url_path='/asset')
 
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 app.config['UPLOAD_EXTENSIONS']  = ['.jpg','.JPG', '.png', '.PNG']
-app.config['UPLOAD_PATH']        = '##########'
+app.config['UPLOAD_PATH']        = 'asset/uploads'
 
 model = None
 
@@ -56,7 +56,7 @@ def apiDeteksi():
 	
 		# Set/mendapatkan extension dan path dari file yg diupload
 		file_ext        = os.path.splitext(filename)[1]
-		gambar_prediksi = '###########' + filename
+		gambar_prediksi = 'asset/uploads' + filename
 		
 		# Periksa apakah extension file yg diupload sesuai (jpg)
 		if file_ext in app.config['UPLOAD_EXTENSIONS']:
@@ -79,7 +79,7 @@ def apiDeteksi():
 			y_pred_test_single         = model.predict(test_image_x)
 			y_pred_test_classes_single = np.argmax(y_pred_test_single, axis=1)
 			
-			hasil_prediksi = AksaraJawa20_classes[y_pred_test_classes_single[0]]
+			hasil_prediksi = Wayang_classes[y_pred_test_classes_single[0]]
 			
 			# Return hasil prediksi dengan format JSON
 			return jsonify({
