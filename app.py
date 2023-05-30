@@ -26,7 +26,7 @@ app = Flask(__name__, static_url_path='/asset')
 
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 app.config['UPLOAD_EXTENSIONS']  = ['.jpg','.JPG', '.png', '.PNG']
-app.config['UPLOAD_PATH']        = 'asset/uploads'
+app.config['UPLOAD_PATH']        = './asset/uploads'
 
 model = None
 
@@ -56,7 +56,7 @@ def apiDeteksi():
 	
 		# Set/mendapatkan extension dan path dari file yg diupload
 		file_ext        = os.path.splitext(filename)[1]
-		gambar_prediksi = 'asset/uploads' + filename
+		gambar_prediksi = './asset/uploads' + filename
 		
 		# Periksa apakah extension file yg diupload sesuai (jpg)
 		if file_ext in app.config['UPLOAD_EXTENSIONS']:
