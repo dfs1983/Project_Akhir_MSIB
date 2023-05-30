@@ -74,7 +74,7 @@ def apiDeteksi():
 			image_array        = np.array(test_image_resized)
 			test_image_x       = (image_array / 255) 
 			test_image_x       = np.array([image_array])
-			
+
 			test_image_x = tf.image.resize(test_image_x, IMG_SIZE)
 
 			
@@ -102,7 +102,7 @@ def apiDeteksi():
 if __name__ == '__main__':
     # Load model yang telah ditraining
     IMG_SIZE = (128, 128)
-	model = make_model()
+    model = make_model()
     
     # Muat berat (weights) model
     model.load_weights("modelwayang.h5")
