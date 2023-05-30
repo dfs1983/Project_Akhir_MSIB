@@ -23,8 +23,6 @@ def make_model():
 
         return data_augmentation
     
-    preprocess_input = applications.efficientnet.preprocess_input
-    
     model = applications.EfficientNetB0(include_top=False)
     len(model.layers)
 
