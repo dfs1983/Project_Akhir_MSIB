@@ -31,7 +31,7 @@ app.config['UPLOAD_PATH']        = 'asset/uploads'
 model = None
 
 NUM_CLASSES = 5
-Wayang_classes = ["bagong", "cepot", "gareng", "petruk", "semar"] 
+Wayang5_classes = ["bagong", "cepot", "gareng", "petruk", "semar"] 
 
 # =[Routing]=====================================
 
@@ -79,7 +79,7 @@ def apiDeteksi():
 			y_pred_test_single         = model.predict(test_image_x)
 			y_pred_test_classes_single = np.argmax(y_pred_test_single, axis=1)
 			
-			hasil_prediksi = Wayang_classes[y_pred_test_classes_single[0]]
+			hasil_prediksi = Wayang5_classes[y_pred_test_classes_single[0]]
 			
 			# Return hasil prediksi dengan format JSON
 			return jsonify({
@@ -100,7 +100,7 @@ if __name__ == '__main__':
 	
 	# Load model yang telah ditraining
 	model = make_model()
-	model.load_weights("modelwayang.h5")
+	model.load_weights("model_Wayang5_cnn_tf.h5")
 
 	# Run Flask di localhost 
 	run_with_ngrok(app)
