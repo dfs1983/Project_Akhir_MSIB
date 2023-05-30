@@ -100,16 +100,14 @@ def apiDeteksi():
 # =[Main]========================================		
 
 if __name__ == '__main__':
-    # Load model yang telah ditraining
-    IMG_SIZE = (128, 128)
-    model = make_model()
-    
-    # Muat berat (weights) model
-    model.load_weights("modelwayang.h5")
-    
-    # Run Flask di localhost 
-    run_with_ngrok(app)
-    app.run()
+	
+	# Load model yang telah ditraining
+	model = make_model()
+	model.load_weights("model_Wayang5_cnn_tf.h5")
+
+	# Run Flask di localhost 
+	run_with_ngrok(app)
+	app.run()
 
 	
 	
