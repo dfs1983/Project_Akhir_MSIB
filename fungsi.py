@@ -11,7 +11,19 @@ from tensorflow.keras.optimizers import Adam
 
 def make_model():
     BATCH_SIZE = 32
-    IMG_SIZE = (128, 128)  
+    IMG_SIZE = (128, 128)
+    data_augmentation = Sequential()
+    data_augmentation.add(RandomRotation(factor=(-0.15, 0.15)))
+    data_augmentation.add(RandomZoom((-0.3, -0.1)))
+    
+    return data_augmentation
+    
+    data_augmentation = data_augmentar()
+    assert(data_augmentation.layers[0].name.startswith('random_rotation'))
+    assert(data_augmentation.layers[0].factor == (-0.15, 0.15))
+    assert(data_augmentation.layers[1].name.startswith('random_zoom'))
+    assert(data_augmentation.layers[1].height_factor == (-0.3, -0.1))
+    
     image_shape=IMG_SIZE
     data_augmentation=data_augmentar()
     IMG_SHAPE = image_shape + (3,)
