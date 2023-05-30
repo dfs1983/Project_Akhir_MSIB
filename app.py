@@ -97,15 +97,17 @@ def apiDeteksi():
 # =[Main]========================================		
 
 if __name__ == '__main__':
-	
-	# Load model yang telah ditraining
-	model = make_model()
-	model.call(tf.keras.Input(shape=(IMG_SIZE, IMG_SIZE, 3)))
-	model.load_weights("model_Wayang5_cnn_tf.h5")
+    IMG_SIZE = (128, 128)  # Define IMG_SIZE here
+    model = make_model()
+    model.call(tf.keras.Input(shape=(IMG_SIZE[0], IMG_SIZE[1], 3)))  # Use IMG_SIZE appropriately
 
-	# Run Flask di localhost 
-	run_with_ngrok(app)
-	app.run()
+    # Load weights (if available)
+    model.load_weights("modelwayang.h5")
+
+    # Run Flask on localhost
+    run_with_ngrok(app)
+    app.run()
+
 	
 	
 
