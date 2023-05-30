@@ -100,6 +100,7 @@ if __name__ == '__main__':
     # Load model yang telah ditraining
     model = make_model()
     
+    IMG_SIZE = (128, 128)  
     # Panggil model terlebih dahulu
     model.call(tf.keras.Input(shape=(IMG_SIZE, IMG_SIZE, 3)))
     
