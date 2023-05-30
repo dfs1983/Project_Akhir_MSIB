@@ -102,7 +102,7 @@ if __name__ == '__main__':
     IMG_SIZE = (128, 128)
     
     # Muat berat (weights) model
-    model.load_weights("model_Wayang5_cnn_tf.h5")
+    model.load_weights("modelwayang.h5")
     
     # Run Flask di localhost 
     run_with_ngrok(app)
