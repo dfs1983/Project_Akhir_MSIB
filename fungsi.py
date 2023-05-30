@@ -10,6 +10,8 @@ from tensorflow.keras.losses import CategoricalCrossentropy
 from tensorflow.keras.optimizers import Adam
 
 def make_model():
+    BATCH_SIZE = 32
+    IMG_SIZE = (128, 128)  
     image_shape=IMG_SIZE
     data_augmentation=data_augmentar()
     IMG_SHAPE = image_shape + (3,)
