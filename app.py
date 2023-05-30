@@ -102,7 +102,7 @@ if __name__ == '__main__':
     model.call(tf.keras.Input(shape=(IMG_SIZE[0], IMG_SIZE[1], 3)))  # Use IMG_SIZE appropriately
 
     # Load weights (if available)
-    model.load_weights("modelwayang.h5")
+    model.load_weights("model_Wayang5_cnn_tf.h5")
 
     # Run Flask on localhost
     run_with_ngrok(app)
