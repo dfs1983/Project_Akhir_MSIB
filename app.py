@@ -68,7 +68,7 @@ def apiDeteksi():
 			test_image         = Image.open('.' + gambar_prediksi)
 			
 			# Mengubah Ukuran Gambar
-			test_image_resized = test_image.resize((64, 64))
+			test_image_resized = test_image.resize((128, 128))
 			
 			# Konversi Gambar ke Array
 			image_array        = np.array(test_image_resized)
