@@ -100,6 +100,7 @@ if __name__ == '__main__':
 	
 	# Load model yang telah ditraining
 	model = make_model()
+	model.call(tf.keras.Input(shape=(IMG_SIZE, IMG_SIZE, 3)))
 	model.load_weights("model_Wayang5_cnn_tf.h5")
 
 	# Run Flask di localhost 
