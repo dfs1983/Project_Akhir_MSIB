@@ -100,9 +100,9 @@ if __name__ == '__main__':
     # Load model yang telah ditraining
     model = make_model()
     
-    IMG_SIZE = (128, 128)  
+      
     # Panggil model terlebih dahulu
-    model.call(tf.keras.Input(shape=(IMG_SIZE, IMG_SIZE, 3)))
+    model.call(tf.keras.Input(shape=(128, 128, 3)))
     
     # Muat berat (weights) model
     model.load_weights("model_Wayang5_cnn_tf.h5")
