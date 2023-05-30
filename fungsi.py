@@ -22,6 +22,11 @@ def make_model():
         assert(data_augmentation.layers[1].height_factor == (-0.3, -0.1))
 
         return data_augmentation
+    
+    preprocess_input = applications.efficientnet.preprocess_input
+    
+    model = applications.EfficientNetB0(include_top=False)
+    len(model.layers)
 
     def alzheimer_classifier(image_shape=IMG_SIZE, data_augmentation=data_augmentar()):
         image_shape = IMG_SIZE + (3,)
