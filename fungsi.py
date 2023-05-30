@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras.layers import Input, GlobalAveragePooling2D, Dense, Conv2D, MaxPooling2D, Flatten, Dropout
 from tensorflow.keras.models import Model
-from tensorflow.keras.preprocessing.image import image_dataset_from_directory
+from tensorflow.keras.utils import image_dataset_from_directory
 from tensorflow.keras.preprocessing.image import random_rotation, random_zoom
 import matplotlib.pyplot as plt
 
