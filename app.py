@@ -26,7 +26,7 @@ app = Flask(__name__, static_url_path='/static')
 
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 app.config['UPLOAD_EXTENSIONS']  = ['.jpg','.JPG', '.png', '.PNG']
-app.config['UPLOAD_PATH']        = '/static/images/uploads/'
+app.config['UPLOAD_PATH']        = './static/images/uploads/'
 
 model = None
 
@@ -56,7 +56,7 @@ def apiDeteksi():
 	
 		# Set/mendapatkan extension dan path dari file yg diupload
 		file_ext        = os.path.splitext(filename)[1]
-		gambar_prediksi = '/static/images/uploads/' + filename
+		gambar_prediksi = './static/images/uploads/' + filename
 		
 		# Periksa apakah extension file yg diupload sesuai (jpg)
 		if file_ext in app.config['UPLOAD_EXTENSIONS']:
@@ -65,7 +65,9 @@ def apiDeteksi():
 			uploaded_file.save(os.path.join(app.config['UPLOAD_PATH'], filename))
 			
 			# Memuat Gambar
-			test_image         = Image.open('.' + gambar_prediksi)
+			test_image_path = os.path.join(app.config['UPLOAD_PATH'], filename)
+			test_image = Image.open(test_image_path)
+
 			
 			# Mengubah Ukuran Gambar
 			test_image_resized = test_image.resize((128, 128))
