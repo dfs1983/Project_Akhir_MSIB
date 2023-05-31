@@ -31,7 +31,7 @@ app.config['UPLOAD_PATH']        = './static/images/uploads/'
 model = None
 
 NUM_CLASSES = 5
-Wayang5_classes = ["bagong", "cepot", "gareng", "petruk", "semar"] 
+Wayang5_classes = ["gareng", "cepot", "semar", "petruk", "bagong"] 
 
 # =[Routing]=====================================
 
