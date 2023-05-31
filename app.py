@@ -75,7 +75,7 @@ def apiDeteksi():
 			# Konversi Gambar ke Array
 			image_array        = np.array(test_image_resized)
 			test_image_x       = (image_array / 255) 
-			test_image_x       = np.array([image_array])
+			test_image_x       = np.array([image_array_x])
 
 			#test_image_x = tf.image.resize(test_image_x, IMG_SIZE)
 			
