@@ -75,8 +75,7 @@ def apiDeteksi():
 			test_image_x       = (image_array / 255) 
 			test_image_x       = np.array([image_array])
 
-			test_image_x = tf.image.resize(test_image_x, IMG_SIZE)
-
+			#test_image_x = tf.image.resize(test_image_x, IMG_SIZE)
 			
 			# Prediksi Gambar
 			y_pred_test_single         = model.predict(test_image_x)
