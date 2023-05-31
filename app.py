@@ -22,7 +22,7 @@ from fungsi import make_model
 
 # =[Variabel Global]=============================
 
-app = Flask(__name__, static_url_path='/asset')
+app = Flask(__name__, static_url_path='/static')
 
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 app.config['UPLOAD_EXTENSIONS']  = ['.jpg','.JPG', '.png', '.PNG']
