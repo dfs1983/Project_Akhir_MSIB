@@ -11,15 +11,15 @@ $(document).ready(function () {
 		pics_data.append('file', file_data);
 
 		// Panggil API dengan timeout 1 detik (1000 ms)
-		setTimeout(function () {
+		setTimeout(function() {
 			try {
 				$.ajax({
-					url: "/api/deteksi",
-					type: "POST",
-					data: pics_data,
-					processData: false,
-					contentType: false,
-					success: function (res) {
+					url         : "/api/deteksi",
+					type        : "POST",
+					data        : pics_data,
+					processData : false,
+					contentType : false,
+					success     : function(res){
 						// Ambil hasil prediksi dan path gambar yang diprediksi dari API
 						res_data_prediksi = res['prediksi']
 						res_gambar_prediksi = res['gambar_prediksi']
@@ -28,7 +28,7 @@ $(document).ready(function () {
 						generate_prediksi(res_data_prediksi, res_gambar_prediksi);
 					}
 				});
-			} catch (e) {
+			} catch(e) {
 				// Jika gagal memanggil API, tampilkan error di console
 				console.log("Gagal !");
 				console.log(e);
@@ -47,7 +47,7 @@ $(document).ready(function () {
 		} else {
 			str += "<h3>Hasil Prediksi </h3>";
 			str += "<br>";
-			str += "<img src='" + image_prediksi + "' width=\"200\"></img>"
+			str += "<img src='" + image_prediksi + "' width=\"300\"></img>"
 			str += "<h3>" + data_prediksi + "</h3>";
 		}
 		$("#hasil_prediksi").html(str);
