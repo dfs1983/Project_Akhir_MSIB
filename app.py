@@ -40,6 +40,9 @@ Wayang5_classes = ["bagong", "cepot", "gareng", "petruk", "semar"]
 def beranda():
 	return render_template('index.html')
 
+def wayangui():
+	return render_template('wayangui.html')
+
 # [Routing untuk API]	
 @app.route("/api/deteksi",methods=['POST'])
 def apiDeteksi():
