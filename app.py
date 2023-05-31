@@ -56,7 +56,7 @@ def apiDeteksi():
 	
 		# Set/mendapatkan extension dan path dari file yg diupload
 		file_ext        = os.path.splitext(filename)[1]
-		gambar_prediksi = './static/images/uploads/' + filename
+		gambar_prediksi = '/static/images/uploads/' + filename
 		
 		# Periksa apakah extension file yg diupload sesuai (jpg)
 		if file_ext in app.config['UPLOAD_EXTENSIONS']:
@@ -65,7 +65,6 @@ def apiDeteksi():
 			uploaded_file.save(os.path.join(app.config['UPLOAD_PATH'], filename))
 			
 			# Memuat Gambar
-			test_image_path = os.path.join(app.config['UPLOAD_PATH'], filename)
 			test_image = Image.open(test_image_path)
 
 			
@@ -76,8 +75,6 @@ def apiDeteksi():
 			image_array        = np.array(test_image_resized)
 			test_image_x       = (image_array / 255) 
 			test_image_x       = np.array([image_array])
-
-			#test_image_x = tf.image.resize(test_image_x, IMG_SIZE)
 			
 			# Prediksi Gambar
 			y_pred_test_single         = model.predict(test_image_x)
