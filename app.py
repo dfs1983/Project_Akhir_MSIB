@@ -41,7 +41,7 @@ def beranda():
 	return render_template('index.html')
 
 def wayangui():
-	return render_template('wayangui.html')
+	return render_template('wayangsui.html')
 
 # [Routing untuk API]	
 @app.route("/api/deteksi",methods=['POST'])
