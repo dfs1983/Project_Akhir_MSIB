@@ -66,8 +66,8 @@ def apiDeteksi():
 			
 			# Memuat Gambar
 			test_image_path = os.path.join(app.config['UPLOAD_PATH'], filename)
-			test_image = Image.open(test_image_path)
-			test_image         = Image.open('.' + gambar_prediksi)
+			#test_image = Image.open(test_image_path)
+			test_image = Image.open('.' + gambar_prediksi)
 			
 			# Mengubah Ukuran Gambar
 			test_image_resized = test_image.resize((128, 128))
